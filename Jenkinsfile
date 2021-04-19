@@ -7,8 +7,9 @@ pipeline {
     }
     stages{
          stage('scm checout')
-        echo "taking git tag from repo ${params.tag}"
-        git url: 'https://github.com/Sandeep0045/new-app.git', tag: "${params.tag}"
+             echo "taking git tag from repo ${params.tag}"
+             git url: 'https://github.com/Sandeep0045/new-app.git', tag: "${params.tag}"
+              }
          stage('Build'){
              steps{
                   sh script: 'mvn clean package'
