@@ -1,11 +1,14 @@
 pipeline {
     agent any
     properties([parameters([gitParameter(branch: '', branchFilter: '.*', defaultValue: '0.0.5', description: 'tags for your application', name: 'tag', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'PT_TAG')])])
-      git(name:
+      
     tools {
         maven 'maven-3'
     }
     stages{
+         stage('scm checout')
+        echo "taking git tag from repo ${params.tag}"
+        git url: 'https://github.com/Sandeep0045/new-app.git', tag: "${params.tag}"
          stage('Build'){
              steps{
                   sh script: 'mvn clean package'
