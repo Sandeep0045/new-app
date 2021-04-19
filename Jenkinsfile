@@ -1,7 +1,10 @@
 pipeline {
     agent any
-    options([parameters([gitParameter(branch: '', branchFilter: '.*', defaultValue: '0.0.5', description: 'tags for your application', name: 'tag', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'PT_TAG')])])
-      
+    parameters {
+         gitParameter name: 'tag'
+                      type: 'PT_TAG'
+                      defaultValue: 'master'
+    }    
     tools {
         maven 'maven-3'
     }
