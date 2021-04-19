@@ -1,5 +1,7 @@
 pipeline {
     agent any
+    properties([parameters([gitParameter(branch: '', branchFilter: '.*', defaultValue: '0.0.5', description: 'tags for your application', name: 'tag', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'PT_TAG')])])
+      git(name:
     tools {
         maven 'maven-3'
     }
