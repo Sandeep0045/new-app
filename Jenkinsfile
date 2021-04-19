@@ -2,8 +2,8 @@ pipeline {
     agent any
     parameters {
          gitParameter name: 'tag'
-                      type: 'PT_TAG'
-                      defaultValue: 'master'
+                      type: 'Tag'
+                      defaultValue: '0.0.5'
     }    
     tools {
         maven 'maven-3'
